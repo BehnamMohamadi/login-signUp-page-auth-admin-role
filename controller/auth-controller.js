@@ -2,7 +2,7 @@ const userData = require("../user-data.json");
 const { writeFile, access, constants } = require("node:fs/promises");
 const { join } = require("node:path");
 
-const signUpGetMethod = (request, response) => {
+const signUpGetMethod = (_request, response) => {
   response.status(200).json({
     status: "success",
     data: { message: "sign up html page should be render   (sign up form) " },
@@ -57,7 +57,7 @@ const signUpPostMethod = async (request, response) => {
   }
 };
 
-const loginGetMethod = (request, response) => {
+const loginGetMethod = (_request, response) => {
   response.status(200).json({
     status: "success",
     data: { message: "Login html page should be render  (login form) " },
@@ -85,7 +85,6 @@ const loginPostMethod = async (request, response) => {
     response.status(200).json({
       status: "success",
       data: {
-        message: "username and password are match",
         user: {
           firstname: findUser.firstname,
           lastname: findUser.lastname,
