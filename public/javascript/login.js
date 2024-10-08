@@ -21,9 +21,6 @@ loginBtn.addEventListener("click", async (e) => {
       body: JSON.stringify(userInfo),
     });
 
-    const data = await response.json();
-    const statusResult = document.querySelector(".status-result");
-
     if (response.ok) {
       alert("login successful");
     } else {

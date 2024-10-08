@@ -15,7 +15,7 @@ const signUpPostMethod = async (request, response) => {
       password = null,
       gender = null,
     } = request.body;
-
+    console.log(firstname, lastname, username, gender);
     const findUser = userData.find((user) => user.username === username);
     if (findUser) {
       return response.status(404).json({
@@ -31,6 +31,7 @@ const signUpPostMethod = async (request, response) => {
       password,
       gender,
     });
+    console.log(userData);
     const userDataAsJson = JSON.stringify(userData);
 
     await access(join(__dirname, "../user-data.json"), constants.F_OK);
