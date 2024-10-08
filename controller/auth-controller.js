@@ -60,8 +60,8 @@ const loginGetMethod = (_request, response) => {
 
 const loginPostMethod = async (request, response) => {
   try {
+    console.log(request.body);
     const { username = null, password = null } = request.body;
-
     const findUser = userData.find((user) => user.username === username);
     if (!findUser) {
       return response.status(400).json({
