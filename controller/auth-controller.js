@@ -3,10 +3,7 @@ const { writeFile, access, constants } = require("node:fs/promises");
 const { join } = require("node:path");
 
 const signUpGetMethod = (_request, response) => {
-  response.status(200).json({
-    status: "success",
-    data: { message: "sign up html page should be render   (sign up form) " },
-  });
+  response.status(200).sendFile(join(__dirname, "../view/sign-up.html"));
 };
 
 const signUpPostMethod = async (request, response) => {
@@ -58,10 +55,7 @@ const signUpPostMethod = async (request, response) => {
 };
 
 const loginGetMethod = (_request, response) => {
-  response.status(200).json({
-    status: "success",
-    data: { message: "Login html page should be render  (login form) " },
-  });
+  response.status(200).sendFile(join(__dirname, "../view/login.html"));
 };
 
 const loginPostMethod = async (request, response) => {
