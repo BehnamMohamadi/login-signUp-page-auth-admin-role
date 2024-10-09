@@ -1,8 +1,9 @@
+const { response } = require("express");
 const userData = require("../user-data.json");
 const { writeFile, access, constants } = require("node:fs/promises");
 const { join } = require("node:path");
 
-const getAllUserData = (request, response) => {
+const getAllUserData = (_request, response) => {
   response.status(200).json({
     status: "success",
     data: { users: userData },
@@ -64,4 +65,8 @@ const removeUser = async (request, response) => {
   }
 };
 
-module.exports = { getAllUserData, getUser, removeUser };
+const userTable = (_request, response) => {
+  response.status(200).sendFile(join(__dirname, "../view/admin-panel.html"));
+};
+
+module.exports = { getAllUserData, getUser, removeUser, userTable };
